@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Book List</title>
+  </head>
+  <body>
+    {{ datetime }}
+    <table border="1">
+      <thead>
+        <tr>
+          <td>Title</td>
+          <td>Price</td>
+          <td>Pages</td>
+        </tr>
+      </thead>
+      <tbody>
+        {% for book in book_list %}
+          <tr>
+            <td>{{ book.title }}</td>
+            <td>{{ book.price }}</td>
+            <td>{{ book.pages }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

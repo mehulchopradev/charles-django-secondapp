@@ -1,4 +1,5 @@
 from django import forms
+from formsapp.models import Book
 
 class ContactForm(forms.Form):
     email = forms.EmailField(label='Email Address', required=True,\
@@ -24,3 +25,12 @@ class RegisterForm(forms.Form):
     '''preferences = forms.ChoiceField(widget=forms.CheckboxSelectMultiple,\
         choices=(('Sports','Sports'),('Travel','Travel')))'''
     profilepic = forms.FileField(required=False)
+
+
+class BookForm(forms.ModelForm):
+    class Meta:
+        model = Book
+        fields = ['title','price','pages', 'publisheddate']
+        widgets = {
+            'publisheddate': forms.DateInput(attrs={'class':'datepicker'})
+        }
